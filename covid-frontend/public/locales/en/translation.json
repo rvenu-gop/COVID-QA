@@ -2,12 +2,12 @@
   "inputs": {
     "question": {
         "label": "Your Question",
-        "placeholder": "Ask a question about COVID-19 (corona virus)"
+        "placeholder": "Your search query here"
     }
   },
   "loader": {
-      "heading": "The BERT is working",
-      "text": "Please Wait – Bitte warten..."
+      "heading": "The Search is working",
+      "text": "Please Wait..."
   },
   "answer": {
       "meta": {

@@ -179,7 +179,7 @@ class Answers extends PureComponent {
               {
                 topAnswer.hasOwnProperty('probability') ? (
                   <Fragment>
-                    <Row gutter={[24, 20]} className="top-answer-wrapper-old">
+                    <Row gutter={[24, 20]} className="top-answer-wrapper">
                       <Col span={19}>
 
                         <div className={styles.answerTitle + ' headline-faq-match'}>
@@ -190,7 +190,7 @@ class Answers extends PureComponent {
                             topAnswer.answer ? (
                               <Fragment>
                                 {topAnswerParts[0]}
-                                  {topAnswer.answer}
+                                <b>{topAnswer.answer}</b>
                                 {topAnswerParts[1]}
                               </Fragment>
                             ) : topAnswer.context || '-'
@@ -206,7 +206,6 @@ class Answers extends PureComponent {
                     <Row gutter={[24, 40]} className="top-answer-meta-wrapper">
                       <Col span={19}>
                         <div className={styles.answerMeta + ' answer-meta-info top-answer'}>
-                        <div><span>{t('answer.meta.datelabel')}</span> {this.formattedDateDE(topAnswerMeta.last_update) || '–'}</div>
                           <div>
                             <span>{t('answer.meta.source')}</span> {topAnswerMeta.source || '–'}
                             {
@@ -254,7 +253,7 @@ class Answers extends PureComponent {
                             item.answer ? (
                               <Fragment>
                                 {answerParts[0]}
-                                  {item.answer}
+                                  <b>{item.answer}</b>
                                 {answerParts[1]}
                               </Fragment>
                             ) : item.context || '-'
@@ -266,7 +265,6 @@ class Answers extends PureComponent {
                 </div>
 
                     <div className={styles.answerMeta + ' answer-meta-info'}>
-                          <div><span>{t('answer.meta.datelabel')}</span> {this.formattedDateDE(topAnswerMeta.last_update) || '–'}</div>
                           <div>
                             <span>{t('answer.meta.source')}</span> {itemMeta.source || '–'}
                             {

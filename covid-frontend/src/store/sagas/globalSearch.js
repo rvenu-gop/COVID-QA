@@ -27,7 +27,7 @@ export function* getOptions(value) {
   try {
     yield put(actions.updateLastSearchValue(value));
     yield delay(400);
-    const data = yield api.get(`/query/autocomplete`, { search: currentString });
+    const data = yield api.get(`/autocomplete`, { search: currentString });
     let i = 0;
 
     // filter duplicates

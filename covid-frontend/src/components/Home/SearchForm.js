@@ -89,16 +89,12 @@ class SearchForm extends PureComponent {
               <p className={styles.detectedLanguage}>Fragesprache {displayLanguages[language]}</p>
             :
             <div className={styles.poweredBy}>
-                  <p className="made-by">Made with <span className="heart">❤</span> and <a href="https://github.com/deepset-ai/haystack">open source</a></p>
+                  <p className="made-by">Semantic Search powered by Sol.ai</p>
             </div>
         }
     </Col></Row>
     <Row> <Col>
-            <div className={styles.projectLogo}>
-              <a href="https://wirvsvirushackathon.org/" target="_blank" rel="noopener noreferrer">
-                <img src={logoHackathon} alt="WirVsVirus Hackathon" />
-              </a>
-            </div>
+
 
           </Col>
         </Row>

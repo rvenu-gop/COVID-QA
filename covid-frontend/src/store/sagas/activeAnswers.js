@@ -21,13 +21,13 @@ export function* get() {
     const question = selectedValue;
 
     const query = {
-      questions: [ question ],
+      query: question,
       top_k_retriever: 5,
     };
+    const data = yield api.post(`/query`, null, query);
+    ///models/${MODEL_ID}/doc-qa
 
-    const data = yield api.post(`/question/ask`, null, query);
-
-    const answers = data.results[0].answers
+    const answers = data.answers
     yield put(actions.set(answers));
 
     // reset the feedbackGiven on each search
@@ -44,15 +44,19 @@ export function* markAsCorrectAnswer({ question, answerDocumentId }) {
     // do nothing
     return;
   }
+  console.log(answerDocumentId)
   const id = parseInt(answerDocumentId, 10);
   try {
     const requestbody = {
       question:  question.selectedValue,
       answer: '',
-      feedback: 'relevant',
-      document_id: id
+      document_id: id,
+      is_correct_answer: true,
+      is_correct_document: true,
+      model_id: 0,
+      offset_start_in_doc: 0
     }
-    yield api.post(`/models/${MODEL_ID}/feedback`, null, requestbody);
+    yield api.post(`/feedback`, null, requestbody);
   } catch (error) {
     message.error(error.message);
   }
